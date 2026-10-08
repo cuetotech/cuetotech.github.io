@@ -38,7 +38,7 @@ jobs:
           tmp="$(mktemp -d)"
           git clone --depth=1 --branch gh-pages https://github.com/cuetotech/hkpc.git "$tmp/hkpc"
           rm -rf "$tmp/hkpc/.git"
-          sudo chown -R "$USER:$USER" _site
+          sudo chown -R "$(id -u):$(id -g)" _site
           rm -rf _site/hkpc
           mkdir -p _site/hkpc
           cp -a "$tmp/hkpc/." _site/hkpc/
